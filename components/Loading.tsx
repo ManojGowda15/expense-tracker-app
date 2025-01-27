@@ -8,16 +8,10 @@ import React from "react";
 import { colors } from "@/constants/theme";
 
 const Loading = ({
-  size = "large",
-  color = colors.primary,
+  size = "small",
+  color = colors.black,
 }: ActivityIndicatorProps) => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <ActivityIndicator size={size} color={color} />
-    </View>
-  );
+  return <ActivityIndicator size={size} color={color} />;
 };
 
 export default Loading;
-
-const styles = StyleSheet.create({});

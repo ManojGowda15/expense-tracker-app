@@ -12,14 +12,20 @@ const Button = ({
   children,
 }: CustomButtonProps) => {
   if (loading) {
-    <View style={[styles.button, style, { backgroundColor: "transparent" }]}>
-      {/* Loading */}
-      <Loading />
-    </View>;
+    return (
+      <View style={[styles.button, style]}>
+        <Loading size="small" color={colors.black} />
+      </View>
+    );
   }
 
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.button, style]}
+      disabled={loading}
+      activeOpacity={0.7}
+    >
       {children}
     </TouchableOpacity>
   );
@@ -33,7 +39,6 @@ const styles = StyleSheet.create({
     borderRadius: radius._17,
     borderCurve: "continuous",
     height: verticalScale(52),
-
     justifyContent: "center",
     alignItems: "center",
   },
